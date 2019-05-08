@@ -27,4 +27,16 @@ class UserTest < MiniTest::Test
 
     assert_equal [@joke_1, @joke_2], @sal.jokes
   end
+
+  def test_sal_tells_ali_jokes
+    assert_equal [], @ali.jokes
+
+    @sal.tell(@ali, @joke_1)
+
+    assert_equal [@joke_1], @ali.jokes
+
+    @sal.tell(@ali, @joke_2)
+
+    assert_equal [@joke_1, @joke_2], @ali.jokes
+  end
 end
